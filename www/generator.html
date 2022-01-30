@@ -2,9 +2,44 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Oblivion Screenshot Generator</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<img alt="generated image" src="data:image/png;base64, {{encoded_image}}">
+<div class="window">
+    <h2 class="window-header">Settings</h2>
+<form action="?" method="post">
+    <label for="npc">Character</label>
+    <br>
+    <div class="dropdown-container">
+        <select id="npc" name="npc_choice">
+            {% for current_npc in npc_list %}
+            <option value="{{current_npc}}">{{current_npc.replace(".jpg", "")}}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <br>
+    <label for="input_text">Caption</label>
+    <textarea id="input_text" name="input_text" placeholder="Enter some text to put on the image"></textarea>
+    <input type="submit" value="Generate">
+</form>
+</div>
+{% if encoded_image %}
+<div class="window">
+    <h2 class="window-header">Generated Image</h2>
+    <img alt="generated image" src="data:image/png;base64, {{encoded_image}}">
+</div>
+{% endif %}
+<div class="window" id="contact">
+    <h2 class="window-header">Contact</h2>
+    <p>Please let me know if you find any bugs or if your favorite character is missing!</p>
+    <p>twitter <a href="https://twitter.com/tigerstyping">@tigerstyping</a></p>
+    <p>personal site: <a href="https://jadev.dev">jadev.dev</a></p>
+    <p>report bugs etc on <a href="https://github.com/jadev-dev/Oblivion-Screenshot-Generator">github</a></p>
+    <p>more oblivion stuff: <a href="https://twitter.com/oblivon_gpt2">oblivion_gpt2</a></p>
+    <hr>
+    <h2 class="window-header">Credits</h2>
+    <p>Oblivion font (Kingthings Petrock) by Kevin King</p>
+</div>
 </body>
 </html>
