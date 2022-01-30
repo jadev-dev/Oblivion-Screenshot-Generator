@@ -2,8 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <title>Oblivion Screenshot Generator</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/oblivion/style.css">
 </head>
 <body>
 <div class="window">
@@ -25,7 +26,7 @@
 </form>
 </div>
 {% if encoded_image %}
-<div class="window">
+<div class="window result">
     <h2 class="window-header">Generated Image</h2>
     <img alt="generated image" src="data:image/png;base64, {{encoded_image}}">
 </div>

@@ -1,9 +1,10 @@
 @font-face {
   font-family: 'Kingthings Petrock';
-    src: url('/static/oblivion_font.woff') format("woff");
-    src: url('/static/oblivion_font.ttf') format("truetype");
+    src: url('https://tigerstyping.com/resources/oblivion_generator/oblivion_font.woff') format("woff");
+    src: url('https://tigerstyping.com/resources/oblivion_generator/oblivion_font.ttf') format("truetype");
 }
 :root {
+    box-sizing: border-box;
     font-family: 'Kingthings Petrock', sans-serif;
     --oblivion-ui-fg-color: #6A3F29;
     --oblivion-ui-fg-color-transparent: #6A3F2955;
@@ -21,10 +22,9 @@
 
 body {
     margin: 0;
-    background-image: url("/static/map.jpg");
+    background-image: url("https://tigerstyping.com/resources/oblivion_generator/map.jpg");
     background-size: 200% auto;
-    animation-name: map_scroll;
-    animation-duration: 100s;
+    animation: map_scroll 100s alternate infinite;
     min-height: 100%;
     line-height: 1.5em;
 }
@@ -36,7 +36,7 @@ body {
 
 select {
     border-style: none;
-    background-image: url("/static/oblivion_arrow.png");
+    background-image: url("https://tigerstyping.com/resources/oblivion_generator/oblivion_arrow.png");
     background-position: right center;
     background-repeat: no-repeat;
     background-size: auto 95%;
@@ -59,21 +59,23 @@ select {
 
 .window {
     text-align: center;
-    background-image: url("/static/paper_texture.png");
+    background-image: url("https://tigerstyping.com/resources/oblivion_generator/paper_texture.png");
     background-repeat: no-repeat;
     background-origin: border-box;
-    background-size: 100% auto;
+    background-size: 100% 100%;
     font-size: 15pt;
+    border-style: solid;
+    border-width: 23px 25px 23px 25px;
     border-image-slice: 34 36 34 36;
     border-image-width: 23px 25px 23px 25px;
     border-image-outset: 23px 25px 23px 25px;
     border-image-repeat: repeat repeat;
-    border-image-source: url("/static/oblivion_ui_frame.png");
+    border-image-source: url("https://tigerstyping.com/resources/oblivion_generator/oblivion_ui_frame.png");
     /*border-width: 23px 25px 23px 25px;*/
     color: var(--oblivion-ui-fg-color);
     margin: 2rem auto 5rem auto;
-    padding: 0.5rem;
-    max-width: min(675px, 75%);
+    padding: 0.1rem;
+    max-width: min(675px, 70%);
 }
 
 textarea {
@@ -95,7 +97,7 @@ textarea::placeholder {
 
 .dropdown-container {
     filter: brightness(130%) drop-shadow(0px 2px 2px #00000055);
-    background-image: url("/static/ob_button.png");
+    background-image: url("https://tigerstyping.com/resources/oblivion_generator/ob_button.png");
     background-size: 100% 100%;
     width: fit-content;
     max-width: 95%;
@@ -110,7 +112,7 @@ textarea::placeholder {
 
 
 input[type=submit] {
-    background-image: url("/static/ob_button.png");
+    background-image: url("https://tigerstyping.com/resources/oblivion_generator/ob_button.png");
     background-color: #00000000;
     color: var(--oblivion-ui-fg-color);
     font-size: 15pt;
@@ -136,13 +138,15 @@ hr {
     border-color: var(--oblivion-ui-fg-color);
 }
 
-.window>img {
-    max-width: 100%;
+img {
+	width: 100%;
+	margin: 0;
 }
+
 
 #contact {
     background-size: 100% 100%;
-    max-width: min(320px, 75%);
+    max-width: min(320px, 70%);
 }
 
 #contact>p {
