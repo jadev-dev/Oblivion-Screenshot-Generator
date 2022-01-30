@@ -1,0 +1,57 @@
+@font-face {
+  font-family: 'Kingthings Petrock';
+    src: url('/static/oblivion_font.woff') format("woff");
+    src: url('/static/oblivion_font.ttf') format("truetype");
+}
+:root {
+    font-family: 'Kingthings Petrock', sans-serif;
+    --oblivion-ui-fg-color: #6A3F29;
+    --oblivion-ui-bg-color: #EBDBBF;
+}
+
+@keyframes map_scroll {
+   from {
+       background-position: center left;
+   }
+    to {
+        background-position: center right;
+    }
+}
+
+body {
+    margin: 0;
+    background-image: url("/static/map.jpg");
+    background-size: 200%;
+    animation-name: map_scroll;
+    animation-duration: 100s;
+}
+
+.window-header {
+    margin: 0 0 1rem 0;
+}
+
+.window {
+    background-image: url("/static/paper_texture.png");
+    background-repeat: no-repeat;
+    background-origin: border-box;
+    background-size: 100% auto;
+    font-size: 15pt;
+    border-image-slice: 34 36 34 36;
+    border-image-width: 23px 25px 23px 25px;
+    border-image-outset: 0px 0px 0px 0px;
+    border-image-repeat: repeat repeat;
+    border-image-source: url("/static/oblivion_ui_frame.png");
+    border-width: 23px 25px 23px 25px;
+    color: var(--oblivion-ui-fg-color);
+    margin: 1rem auto 1rem auto;
+    padding: 0.5rem;
+    max-width: 675px;
+}
+
+input, select, option, optgroup {
+    font-family: "Kingthings Petrock", sans-serif;
+}
+
+.window>img {
+    max-width: 100%;
+}
