@@ -6,31 +6,59 @@
 :root {
     font-family: 'Kingthings Petrock', sans-serif;
     --oblivion-ui-fg-color: #6A3F29;
+    --oblivion-ui-fg-color-transparent: #6A3F2955;
     --oblivion-ui-bg-color: #EBDBBF;
 }
 
 @keyframes map_scroll {
    from {
-       background-position: center left;
+       background-position: {{pan_position[0]}} {{y_position}}% ;
    }
     to {
-        background-position: center right;
+        background-position: {{pan_position[1]}} {{y_position}}% ;
     }
 }
 
 body {
     margin: 0;
     background-image: url("/static/map.jpg");
-    background-size: 200%;
+    background-size: 200% auto;
     animation-name: map_scroll;
     animation-duration: 100s;
+    min-height: 100%;
+    line-height: 1.5em;
 }
 
+#container {
+    background-color: #FFFFFF77;
+    height: 100%;
+}
+
+select {
+    border-style: none;
+    background-image: url("/static/oblivion_arrow.png");
+    background-position: right center;
+    background-repeat: no-repeat;
+    background-size: auto 95%;
+    padding: 0.2em;
+    -webkit-appearance: none;
+    font-family: "Kingthings Petrock", sans-serif;
+    color: var(--oblivion-ui-fg-color);
+    border-radius: 0;
+    background-color: transparent;
+    max-width: 95%;
+    font-size: 15pt;
+}
+
+
 .window-header {
+    font-weight: normal;
     margin: 0 0 1rem 0;
+    font-size: 17pt;
 }
 
 .window {
+    text-align: center;
     background-image: url("/static/paper_texture.png");
     background-repeat: no-repeat;
     background-origin: border-box;
@@ -38,20 +66,86 @@ body {
     font-size: 15pt;
     border-image-slice: 34 36 34 36;
     border-image-width: 23px 25px 23px 25px;
-    border-image-outset: 0px 0px 0px 0px;
+    border-image-outset: 23px 25px 23px 25px;
     border-image-repeat: repeat repeat;
     border-image-source: url("/static/oblivion_ui_frame.png");
-    border-width: 23px 25px 23px 25px;
+    /*border-width: 23px 25px 23px 25px;*/
     color: var(--oblivion-ui-fg-color);
-    margin: 1rem auto 1rem auto;
+    margin: 2rem auto 5rem auto;
     padding: 0.5rem;
-    max-width: 675px;
+    max-width: min(675px, 75%);
 }
 
-input, select, option, optgroup {
+textarea {
+    font-size: 15pt;
+    width: 90%;
+    color: var(--oblivion-ui-fg-color);
+    border: 1px solid var(--oblivion-ui-fg-color);
+    background-color: #00000000;
+    height: 4em;
+    display: block;
+    margin: 0.5em auto 0.5em auto;
+    resize: none;
     font-family: "Kingthings Petrock", sans-serif;
+}
+
+textarea::placeholder {
+    color: var(--oblivion-ui-fg-color-transparent);
+}
+
+.dropdown-container {
+    filter: brightness(130%) drop-shadow(0px 2px 2px #00000055);
+    background-image: url("/static/ob_button.png");
+    background-size: 100% 100%;
+    width: fit-content;
+    max-width: 95%;
+    margin: auto;
+    padding: 0.2em;
+
+}
+
+.dropdown-container:hover {
+    filter: brightness(110%) drop-shadow(0px 2px 2px #00000055);
+}
+
+
+input[type=submit] {
+    background-image: url("/static/ob_button.png");
+    background-color: #00000000;
+    color: var(--oblivion-ui-fg-color);
+    font-size: 15pt;
+    font-family: "Kingthings Petrock", sans-serif;
+    filter: brightness(130%) drop-shadow(0px 2px 2px #00000055);
+    width: 145px;
+    height: 35px;
+    border: none;
+    margin: auto;
+    background-size: 100% 100%;
+    display: block;
+}
+
+input[type=submit]:hover {
+    filter: brightness(110%) drop-shadow(0px 2px 2px #00000055);
+}
+
+input[type=submit]:active {
+    filter: brightness(110%);
+}
+
+hr {
+    border-color: var(--oblivion-ui-fg-color);
 }
 
 .window>img {
     max-width: 100%;
+}
+
+#contact {
+    background-size: 100% 100%;
+    max-width: min(320px, 75%);
+}
+
+#contact>p {
+    margin-top: 0.2em;
+    margin-bottom: 0.2em;
 }
